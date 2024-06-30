@@ -8,7 +8,7 @@ const multer = require("multer");
 const cors = require("cors");
 const sharp = require("sharp");
 const bcrypt = require("bcrypt");
-const stripe = require("stripe")("sk_test_51PKfw0SDNrzV9IQG6HzMIYYIzVY51mGRAtvAPrJfoil4A2VaI94srRDjVnhDnfX4RB8v7HyoiL5yDss5u39f64Bc00pp4o9rfS");
+const stripe = require("stripe")("your key");
 
 // Setting up port and middleware
 const port = process.env.PORT || 4000;
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB Connection
-mongoose.connect("mongodb+srv://manavmodi:modi304305@cluster0.jc70ucg.mongodb.net/e-commerce", {
+mongoose.connect("mongodb+srv://your mongodb connection key ", {
 
 });
 
@@ -161,7 +161,7 @@ const fetchUser = async (req, res, next) => {
   }
 
   try {
-    const data = jwt.verify(token, "secret_ecom");
+    const data = jwt.verify(token, "your secret key ");
     req.user = data.user;
     next();
   } catch (error) {
